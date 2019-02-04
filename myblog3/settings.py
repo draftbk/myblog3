@@ -53,16 +53,12 @@ ROOT_URLCONF = 'myblog3.urls'
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        # 替换backends
+        'BACKEND': 'django.template.backends.jinja2.Jinja2',
+        'DIRS': [os.path.join(BASE_DIR, 'polls/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
+            'environment': 'my_blog.jinja2.environment',
         },
     },
 ]
@@ -78,7 +74,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'awesome',
         'USER': 'Draftbk',
-        'PASSWORD': '8288178Slf',
+        'PASSWORD': 'xx',
         'HOST': 'awsblog.cuqtmsbllwin.us-east-1.rds.amazonaws.com',
         'PORT': '3306',
     }
